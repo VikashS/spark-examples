@@ -19,7 +19,7 @@ public class SparkContextExample {
 		
 		System.out.println(ctx.getConf().toDebugString());
 		
-		ctx.close();
+		ctx.stop();
 	}
 
 }
