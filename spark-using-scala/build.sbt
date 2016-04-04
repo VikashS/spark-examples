@@ -8,8 +8,8 @@ libraryDependencies ++= Seq(
 
 	"org.apache.spark" %% "spark-core" % "1.6.1" % "provided" withSources() withJavadoc(),
     "org.apache.spark" %% "spark-sql" % "1.6.1" % "provided" withSources() withJavadoc(),
-    "org.apache.spark" %% "spark-streaming" % "1.6.1" % "provided" withSources() withJavadoc()
-
+    "org.apache.spark" %% "spark-streaming" % "1.6.1" % "provided" withSources() withJavadoc(),
+    "net.sf.opencsv"   % "opencsv" % "2.3"  withSources() withJavadoc()
 )
 
 assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
