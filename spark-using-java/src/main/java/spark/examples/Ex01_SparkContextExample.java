@@ -1,8 +1,9 @@
 package spark.examples;
 
+import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 
-public class SparkContextExample {
+public class Ex01_SparkContextExample {
 
 	public static void main(String[] args) {
 		String master = System.getenv("MASTER");
@@ -15,11 +16,13 @@ public class SparkContextExample {
 		}
 		String jars = System.getenv("JARS");
 
-		JavaSparkContext ctx = new JavaSparkContext(master, "my Java app", sparkHome , jars);
+		SparkConf conf = new SparkConf().setMaster(master).setSparkHome(sparkHome).setAppName("my Java app");
+		conf.set("spark.ui.port", "4141");
 		
-		System.out.println(ctx.getConf().toDebugString());
+		JavaSparkContext sc = new JavaSparkContext(conf);
 		
-		ctx.stop();
+		System.out.println(sc.getConf().toDebugString());
+		
+		sc.stop();
 	}
-
 }
