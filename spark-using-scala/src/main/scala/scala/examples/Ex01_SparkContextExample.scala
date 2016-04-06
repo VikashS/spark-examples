@@ -11,8 +11,9 @@ object Ex01_SparkContextExample {
     val sparkHome = Properties.propOrElse("SPARK_HOME", "")
     val myJars = Seq(java.lang.System.getenv(("JARS")))
     
-    val conf = new SparkConf().setMaster( master ).setAppName("My App" )
+    val conf = new SparkConf().setMaster( master ).setAppName("My App" ).setSparkHome(sparkHome)
     conf.setJars(myJars)
+    conf.set("spark.ui.port", "4141");
     
     val sc = new SparkContext(conf)
 
