@@ -4,11 +4,11 @@ import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql._
 import org.apache.spark.sql.hive.HiveContext
 
-object Ex07_UsingHive {
+object Ex07_UsingHive2 {
   def main(args: Array[String]): Unit = {
 
     // create  a spark conf and context
-    val conf = new SparkConf().setMaster("local").setAppName("UsingHive")
+    val conf = new SparkConf().setMaster("local").setAppName("Ex07_UsingHive2")
     conf.set("spark.ui.port", "4141");
 
     val sc = new SparkContext(conf)
@@ -132,4 +132,4 @@ object Ex07_UsingHive {
 }
 //export CLASSPATH="$CLASSPATH:/usr/local/java/spark-1.6.1-bin-hadoop2.6/lib/mysql-connector-java-5.1.35-bin.jar"
 //export SPARK_CLASSPATH=$CLASSPATH
-//spark-submit --class scala.examples.sql.Ex07_UsingHive --master spark://`hostname`:7077 target/scala-2.10/spark-using-scala-assembly.jar
+//spark-submit --class scala.examples.sql.Ex07_UsingHive2 --master spark://`hostname`:7077 target/scala-2.10/spark-using-scala-assembly.jar

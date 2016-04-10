@@ -54,7 +54,7 @@ object Ex06_UDF {
   def main(args: Array[String]) {
 
     // create  a spark conf and context
-    val conf = new SparkConf().setMaster("local").setAppName("UDFExample")
+    val conf = new SparkConf().setMaster("local").setAppName("Ex06_UDF")
     conf.set("spark.ui.port", "4141");
 
     val sc = new SparkContext(conf)

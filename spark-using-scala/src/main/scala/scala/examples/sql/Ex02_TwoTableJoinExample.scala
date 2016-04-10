@@ -12,7 +12,7 @@ object Ex02_TwoTableJoinExample {
   case class OrderDetails(OrderID: String, ProductID: String, UnitPrice: Float, Qty: Int, Discount: Float)
 
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setMaster("local").setAppName("SQLSimpleSelect")
+    val conf = new SparkConf().setMaster("local").setAppName("Ex02_TwoTableJoinExample")
     conf.set("spark.ui.port", "4141");
 
     val sc = new SparkContext(conf)

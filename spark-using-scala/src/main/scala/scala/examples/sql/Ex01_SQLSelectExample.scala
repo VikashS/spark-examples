@@ -16,7 +16,7 @@ object Ex01_SQLSelectExample {
     
   def main(args: Array[String]): Unit = {
 
-    val conf = new SparkConf().setMaster("local").setAppName("SQLSimpleSelect")
+    val conf = new SparkConf().setMaster("local").setAppName("Ex01_SQLSelectExample")
     conf.set("spark.ui.port", "4141");
 
     val sc = new SparkContext(conf)

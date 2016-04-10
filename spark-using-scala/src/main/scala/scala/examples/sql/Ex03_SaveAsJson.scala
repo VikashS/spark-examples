@@ -8,7 +8,7 @@ import org.apache.spark.sql.types.{ StructType, StructField, StringType };
 
 object Ex03_SaveAsJson {
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setMaster("local").setAppName("SaveAsJson")
+    val conf = new SparkConf().setMaster("local").setAppName("Ex03_SaveAsJson")
     conf.set("spark.ui.port", "4141");
 
     val sc = new SparkContext(conf)

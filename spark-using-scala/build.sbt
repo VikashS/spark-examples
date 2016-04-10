@@ -10,6 +10,9 @@ libraryDependencies ++= Seq(
     "org.apache.spark" %% "spark-sql" % "1.6.1" % "provided" withSources() withJavadoc(),
     "org.apache.spark" %% "spark-streaming" % "1.6.1" % "provided" withSources() withJavadoc(),
     "org.apache.spark" %% "spark-hive" % "1.6.1" % "provided" withSources() withJavadoc(),
+	"com.datastax.spark" %% "spark-cassandra-connector" % "1.6.0-M1" % "provided" withSources() withJavadoc(),
+
+    
 //    "org.scalacheck" %% "scalacheck" % "1.13.0", 
 //    "com.typesafe.scala-logging" %% "scala-logging-slf4j" % "2.1.2",
 //    "com.typesafe.scala-logging" %% "scala-logging-api" % "2.1.2",

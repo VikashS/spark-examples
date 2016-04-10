@@ -5,11 +5,11 @@ import org.apache.spark.SparkContext._
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.types._
 
-object Ex05_SelectExampleWithSchema {
+object Ex05_SelectExampleWithSchema2 {
 def main(args: Array[String]) {
 
     // create  a spark conf and context
-    val conf = new SparkConf().setMaster("local").setAppName("DataFrameExample")
+    val conf = new SparkConf().setMaster("local").setAppName("Ex05_SelectExampleWithSchema2")
     conf.set("spark.ui.port", "4141");
 
     val sc = new SparkContext(conf)
@@ -53,17 +53,17 @@ def main(args: Array[String]) {
 
     // ---------------------------------------------------
     // example 1
-//     val resRDD = sqlContext.sql("SELECT COUNT(*) FROM adult")
+     var resRDD = sqlContext.sql("SELECT COUNT(*) FROM adult")
 
     // ---------------------------------------------------
     // example 2
-//     val resRDD = sqlContext.sql("SELECT * FROM adult LIMIT 10")
-//     resRDD.map(t => t(0)  + " " + t(1)  + " " + t(2)  + " " + t(3)  + " " + 
-//                     t(4)  + " " + t(5)  + " " + t(6)  + " " + t(7)  + " " + 
-//                     t(8)  + " " + t(9)  + " " + t(10) + " " + t(11) + " " + 
-//                     t(12) + " " + t(13) + " " + t(14) 
-//               )
-//       .collect().foreach(println)
+     resRDD = sqlContext.sql("SELECT * FROM adult LIMIT 10")
+     resRDD.map(t => t(0)  + " " + t(1)  + " " + t(2)  + " " + t(3)  + " " + 
+                     t(4)  + " " + t(5)  + " " + t(6)  + " " + t(7)  + " " + 
+                     t(8)  + " " + t(9)  + " " + t(10) + " " + t(11) + " " + 
+                     t(12) + " " + t(13) + " " + t(14) 
+               )
+       .collect().foreach(println)
 
     // ---------------------------------------------------
     // example 3
@@ -87,17 +87,17 @@ def main(args: Array[String]) {
     // ---------------------------------------------------
     // example 6
 
-    val selectClause = "SELECT COUNT(*) FROM "
-    val tableClause = " ( SELECT age,education,occupation FROM adult) t1 " 
-    val filterClause = "WHERE ( t1.age > 25 ) "
-    val groupClause = ""
-    val orderClause = ""
-
-    val resRDD = sqlContext.sql( selectClause + tableClause + filterClause +
-                                 groupClause + orderClause
-                               )
-
-    resRDD.map(t => "Count - " + t(0)).collect().foreach(println)
+//    val selectClause = "SELECT COUNT(*) FROM "
+//    val tableClause = " ( SELECT age,education,occupation FROM adult) t1 " 
+//    val filterClause = "WHERE ( t1.age > 25 ) "
+//    val groupClause = ""
+//    val orderClause = ""
+//
+//    resRDD = sqlContext.sql( selectClause + tableClause + filterClause +
+//                                 groupClause + orderClause
+//                               )
+//
+//    resRDD.map(t => "Count - " + t(0)).collect().foreach(println)
 
   } // end main
 }

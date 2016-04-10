@@ -8,7 +8,7 @@ import org.apache.spark.sql.types.{ StructType, StructField, StringType };
 
 object Ex04_DataFrame {
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setMaster("local").setAppName("DataFrameExample")
+    val conf = new SparkConf().setMaster("local").setAppName("Ex04_DataFrame")
     conf.set("spark.ui.port", "4141");
 
     val sc = new SparkContext(conf)
