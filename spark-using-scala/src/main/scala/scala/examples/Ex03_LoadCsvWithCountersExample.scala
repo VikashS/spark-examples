@@ -13,7 +13,7 @@ object Ex03_LoadCsvWithCountersExample {
 
     val sc = new SparkContext(conf)
 
-    sc.addFile("/Users/aahme25/Data_Files/Line_of_numbers.csv")
+    sc.addFile("data/Line_of_numbers.csv")
     val inFile = sc.textFile(SparkFiles.get("Line_of_numbers.csv"))
 
     val invalidLineCounter = sc.accumulator(0)
