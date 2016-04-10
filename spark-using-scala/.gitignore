@@ -1,2 +1,4 @@
 /bin/
 /.cache-tests
+/metastore_db/
+/derby.log
