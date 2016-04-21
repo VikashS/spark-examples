@@ -27,7 +27,7 @@ object Ex01_SQLSelectExample {
 
     val employeeFile = sc.textFile("data/NW-Employees-NoHdr.csv")
 
-    println(s"${"="*100}")
+    println("="*100)
     println("Employee File has %d Lines.".format(employeeFile.count()))
 
     val employees: RDD[Employee] = employeeFile.map(_.split(",")).
@@ -43,11 +43,11 @@ object Ex01_SQLSelectExample {
 
     var result = sqlContext.sql("SELECT * from Employees")
 
-    println(s"${"="*100}")
+    println("="*100)
     result.foreach(println)
     
     result = sqlContext.sql("SELECT * from Employees WHERE state ='WA'")
-    println(s"${"="*100}")
+    println("="*100)
     result.foreach(println)
   }
 }
