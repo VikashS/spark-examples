@@ -18,3 +18,9 @@ spark-using-scala/target
 spark-using-scala/.settings
 
 spark-using-scala/.cache-main
+
+spark-2.0-examples/target
+spark-2.0-examples/.project
+spark-2.0-examples/.settings
+spark-2.0-examples/project/target
+spark-2.0-examples/.cache-main
