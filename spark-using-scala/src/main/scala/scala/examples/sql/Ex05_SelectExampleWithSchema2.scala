@@ -53,51 +53,42 @@ def main(args: Array[String]) {
 
     // ---------------------------------------------------
     // example 1
-     var resRDD = sqlContext.sql("SELECT COUNT(*) FROM adult")
+     var df = sqlContext.sql("SELECT COUNT(*) FROM adult")
 
     // ---------------------------------------------------
     // example 2
-     resRDD = sqlContext.sql("SELECT * FROM adult LIMIT 10")
-     resRDD.map(t => t(0)  + " " + t(1)  + " " + t(2)  + " " + t(3)  + " " + 
-                     t(4)  + " " + t(5)  + " " + t(6)  + " " + t(7)  + " " + 
-                     t(8)  + " " + t(9)  + " " + t(10) + " " + t(11) + " " + 
-                     t(12) + " " + t(13) + " " + t(14) 
-               )
-       .collect().foreach(println)
+//     df = sqlContext.sql("SELECT * FROM adult LIMIT 10")
+//     df.map(t => t(0)  + " " + t(1)  + " " + t(2)  + " " + t(3)  + " " + 
+//                     t(4)  + " " + t(5)  + " " + t(6)  + " " + t(7)  + " " + 
+//                     t(8)  + " " + t(9)  + " " + t(10) + " " + t(11) + " " + 
+//                     t(12) + " " + t(13) + " " + t(14) 
+//               )
+//       .collect().foreach(println)
 
     // ---------------------------------------------------
     // example 3
-//     val resRDD = sqlContext.sql("SELECT COUNT(*) FROM adult WHERE age < 60")
-//     resRDD.map(t => "Count - " + t(0)).collect().foreach(println)
+//     df = sqlContext.sql("SELECT COUNT(*) FROM adult WHERE age < 60")
+//     df.map(t => "Count - " + t(0)).collect().foreach(println)
 
     // ---------------------------------------------------
     // example 4
-//     val selectClause = "SELECT COUNT(*) FROM adult "
-//     val filterClause = "WHERE age > 25 AND age < 60"
-//     val resRDD = sqlContext.sql( selectClause + filterClause )
-//     resRDD.map(t => "Count - " + t(0)).collect().foreach(println)
-
-    // ---------------------------------------------------
-    // example 5
-//     val selectClause = "SELECT COUNT(*) FROM adult "
-//     val filterClause = "WHERE ( age > 15 AND age < 25 ) OR ( age > 30 AND age < 45 ) "
-//     val resRDD = sqlContext.sql( selectClause + filterClause )
-//     resRDD.map(t => "Count - " + t(0)).collect().foreach(println)
+//     df = sqlContext.sql( "SELECT COUNT(*) FROM adult WHERE age > 25 AND age < 60" )
+//     df.map(t => "Count - " + t(0)).collect().foreach(println)
 
     // ---------------------------------------------------
     // example 6
 
-//    val selectClause = "SELECT COUNT(*) FROM "
-//    val tableClause = " ( SELECT age,education,occupation FROM adult) t1 " 
-//    val filterClause = "WHERE ( t1.age > 25 ) "
-//    val groupClause = ""
-//    val orderClause = ""
-//
-//    resRDD = sqlContext.sql( selectClause + tableClause + filterClause +
-//                                 groupClause + orderClause
-//                               )
-//
-//    resRDD.map(t => "Count - " + t(0)).collect().foreach(println)
+    val selectClause = "SELECT COUNT(*) FROM "
+    val tableClause = " ( SELECT age,education,occupation FROM adult) t1 " 
+    val filterClause = "WHERE ( t1.age > 25 ) "
+    val groupClause = ""
+    val orderClause = ""
+
+    df = sqlContext.sql( selectClause + tableClause + filterClause +
+                                 groupClause + orderClause
+                               )
+
+    df.map(t => "Count - " + t(0)).collect().foreach(println)
 
   } // end main
 }

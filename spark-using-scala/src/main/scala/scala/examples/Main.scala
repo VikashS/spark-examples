@@ -14,6 +14,8 @@ object Main {
     val sc = new SparkContext(conf)
 
 
+    val pairRDD = sc.parallelize(Seq(("one",1),("two",2),("three",3)))
+    
     sc.stop
   }
 }

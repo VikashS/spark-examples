@@ -18,6 +18,8 @@ object Ex07_UsingHive2 {
     import hiveContext.implicits._
     import hiveContext.sql
 
+    hiveContext.sql("drop table if exists adult2")
+    hiveContext.sql("drop table if exists adult3")
     // run some sql
 
     // -----------------------------------------------------------
@@ -46,8 +48,8 @@ object Ex07_UsingHive2 {
                         
                         """)
 
-        var resRDD = hiveContext.sql("SELECT COUNT(*) FROM adult2")
-        resRDD.map(t => "Count : " + t(0) ).collect().foreach(println)
+        var df = hiveContext.sql("SELECT COUNT(*) FROM adult2")
+        df.map(t => "Count : " + t(0) ).collect().foreach(println)
 
     // -----------------------------------------------------------
     // example 2
@@ -73,18 +75,18 @@ object Ex07_UsingHive2 {
              income          STRING                    
            )                    
            ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' 
-           LOCATION 'file:///Users/aahme25/GitHub/spark-examples/spark-using-scala/data/hive'
+           LOCATION '/Users/aahme25/GitHub/spark-examples/spark-using-scala/hive/adult'
 
                    """)
 
     // take another count 
-     resRDD = hiveContext.sql("SELECT COUNT(*) FROM adult3")
-     resRDD.map(t => "Count : " + t(0) ).collect().foreach(println)
+     df = hiveContext.sql("SELECT COUNT(*) FROM adult3")
+     df.map(t => "Count : " + t(0) ).collect().foreach(println)
 
     // -----------------------------------------------------------
     // example 3
 
-     resRDD = hiveContext.sql("""
+     df = hiveContext.sql("""
 
           SELECT t1.edu FROM
           ( SELECT DISTINCT education AS edu FROM adult3 ) t1
@@ -92,7 +94,7 @@ object Ex07_UsingHive2 {
 
                     """)
 
-     resRDD.map(t => t(0) ).collect().foreach(println)
+     df.map(t => t(0) ).collect().foreach(println)
 
     // -----------------------------------------------------------
     // example 4
