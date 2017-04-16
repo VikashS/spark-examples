@@ -17,7 +17,7 @@ object ReadFromCassandra {
     
     dataRDD.take(10).foreach(println(_))
     
-    println(dataRDD.first().columnNames)
+//    println(dataRDD.first().columnNames)
     
     val cc = new org.apache.spark.sql.cassandra.CassandraSQLContext(sc)
     

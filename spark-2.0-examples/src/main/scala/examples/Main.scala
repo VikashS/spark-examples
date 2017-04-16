@@ -13,11 +13,7 @@ object Main {
 //      .config("spark.some.config.option", "config-value")
       .getOrCreate()
     
-//    val input = spark.sparkContext.textFile("file:////Users/aahme25/Data_Files/log.txt")
-//    val filter = input.filter { x => x.contains("ERROR") }
-//    filter.collect().foreach { println }
-    
-    val jsonData = spark.read.json("/usr/local/java/spark-2.0.0-bin-hadoop2.7/examples/src/main/resources/people.json")
+    val jsonData = spark.read.json("/usr/local/java/spark-2.1.0-bin-hadoop2.7/examples/src/main/resources/people.json")
     jsonData.collect().foreach(println)
     
     val tables = spark.catalog.listTables()
@@ -25,7 +21,7 @@ object Main {
     
     import spark.implicits._ 
     // Turn a generic DataFrame into a Dataset of Person
-    val ds = spark.read.json("/usr/local/java/spark-2.0.0-bin-hadoop2.7/examples/src/main/resources/people.json").as[Person]
+    val ds = spark.read.json("/usr/local/java/spark-2.1.0-bin-hadoop2.7/examples/src/main/resources/people.json").as[Person]
     println(ds.columns.mkString(","))
     println(ds.schema)
     ds.explain(true)
