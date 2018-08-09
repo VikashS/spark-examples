@@ -19,6 +19,7 @@ object Ex13_TungstenPerformanceDemo extends App {
   val million = spark.sparkContext.parallelize(0 until math.pow(10, 6).toInt)
 
   //using RDDS
+  
   million.cache.count
 
   //using tungsten
