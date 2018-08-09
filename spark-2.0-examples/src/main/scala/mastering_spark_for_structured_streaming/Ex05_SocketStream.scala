@@ -7,7 +7,7 @@ object Ex05_SocketStream extends App {
   val spark = SparkSession
     .builder()
     .master("local[2]")
-    .appName("Ex01_CountWord")
+    .appName("Ex05_SocketStream")
     .getOrCreate()
 
   import spark.implicits._

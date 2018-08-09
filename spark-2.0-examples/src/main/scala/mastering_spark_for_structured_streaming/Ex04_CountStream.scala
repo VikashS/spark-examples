@@ -6,7 +6,7 @@ object Ex04_CountStream extends App {
   val spark = SparkSession
     .builder()
     .master("local[2]")
-    .appName("Ex01_CountWord")
+    .appName("Ex04_CountStream")
     .getOrCreate()
 
   import spark.implicits._

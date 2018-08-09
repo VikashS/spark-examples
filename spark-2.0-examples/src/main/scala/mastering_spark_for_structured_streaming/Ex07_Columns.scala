@@ -11,7 +11,7 @@ object Ex07_Columns extends App {
   val spark = SparkSession
     .builder()
     .master("local[2]")
-    .appName("Ex01_CountWord")
+    .appName("Ex07_Columns")
     .getOrCreate()
 
   import spark.implicits._

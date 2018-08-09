@@ -11,7 +11,7 @@ object Ex08_GroupBy extends App {
   val spark = SparkSession
     .builder()
     .master("local[2]")
-    .appName("Ex01_CountWord")
+    .appName("Ex08_GroupBy")
     .getOrCreate()
 
   import spark.implicits._

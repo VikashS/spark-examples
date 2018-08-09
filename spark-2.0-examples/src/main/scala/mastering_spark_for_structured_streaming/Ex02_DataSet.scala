@@ -6,7 +6,7 @@ object Ex02_DataSet extends App {
   val spark = SparkSession
     .builder()
     .master("local[2]")
-    .appName("Ex01_CountWord")
+    .appName("Ex02_DataSet")
     .getOrCreate()
 
   import spark.implicits._

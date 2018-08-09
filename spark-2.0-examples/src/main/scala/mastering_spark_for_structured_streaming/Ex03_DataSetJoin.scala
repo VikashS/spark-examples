@@ -9,7 +9,7 @@ object Ex03_DataSetJoin extends App {
   val spark = SparkSession
     .builder()
     .master("local[2]")
-    .appName("Ex01_CountWord")
+    .appName("Ex03_DataSetJoin")
     .getOrCreate()
 
   import spark.implicits._

@@ -1,17 +1,17 @@
 package mastering_spark_for_structured_streaming
 
-import org.apache.spark.sql.functions._
-import org.apache.spark.sql.types._
 import org.apache.spark.sql.catalyst.ScalaReflection
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions._
+import org.apache.spark.sql.types._
 
-object Ex06_StreamWithSchema extends App {
+object Ex10_Sql extends App {
   case class Person(name: String, city: String, country: String, age: Option[Int])
 
   val spark = SparkSession
     .builder()
     .master("local[2]")
-    .appName("Ex06_StreamWithSchema")
+    .appName("Ex10_Sql")
     .getOrCreate()
 
   import spark.implicits._
@@ -28,9 +28,15 @@ object Ex06_StreamWithSchema extends App {
     .csv("/Users/adnan/Personal-GitHub/spark-examples/spark-2.0-examples/src/main/resources/people*")
     .as[Person]
 
-  peopleStream.writeStream
-    .outputMode("append")
+  peopleStream.createOrReplaceTempView("peopleTable")
+
+  //SQL Query
+  val query = spark.sql("select country, avg(age) from peopleTable group by country")
+
+  query.writeStream
+    .outputMode("complete")
     .format("console")
     .start()
     .awaitTermination()
+
 }
